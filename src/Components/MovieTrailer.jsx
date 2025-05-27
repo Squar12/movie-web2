@@ -18,7 +18,7 @@ export const MovieTrailer = ({ movieId }) => {
     };
     getMovieTrailerById();
   }, []);
-  console.log(trailer);
+
   const movieTrailer = trailer.find(
     (video) => video.name === "Official Trailer"
   );
@@ -27,12 +27,12 @@ export const MovieTrailer = ({ movieId }) => {
       <DialogTrigger asChild>
         <Button>Watch Trailer</Button>
       </DialogTrigger>
-      <DialogContent className="p-0 overflow-hidden min-w-fit">
+      <DialogContent className="p-0 overflow-hidden md:min-w-[1080px]">
         <YouTube
           videoId={movieTrailer?.key}
           opts={{
             height: "561",
-            widtch: "997",
+            width: "100%",
             playerVars: {
               autoplay: 1,
             },

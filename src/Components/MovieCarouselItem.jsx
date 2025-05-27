@@ -1,7 +1,10 @@
 import { Star } from "lucide-react";
 import { MovieTrailer } from "./MovieTrailer";
-
+import Link from "next/link";
 export const MovieCarouselItem = ({ movie }) => {
+  const watchTrailer = (event) => {
+    event.preventDefault();
+  };
   return (
     <div>
       <div
@@ -12,34 +15,36 @@ export const MovieCarouselItem = ({ movie }) => {
           backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie.backdrop_path})`,
         }}
       >
-        <div className="w-screen mx-auto h-full invisible md:visible">
-          <div className="pl-[60px] pt-[200px] px-4 py-4 items-start flex-col flex w-[404px] h-[264px] top-[178px] left-[140px]">
-            <div className="flex justify-center">
-              <div className="w-[252px] h-[52px]">
-                <p className="text-[14px] md:text-white">Now Playing:</p>
-                <p className="text-[24px] font-bold md:text-white">
-                  {movie.title}
-                </p>
+        <Link href={`/details/${movie.id}`}>
+          <div className="w-screen mx-auto h-full invisible md:visible">
+            <div className="pl-[60px] pt-[200px] px-4 py-4 items-start flex-col flex w-[404px] h-[264px] top-[178px] left-[140px]">
+              <div className="flex justify-center">
+                <div className="w-[252px] h-[52px]">
+                  <p className="text-[14px] md:text-white">Now Playing:</p>
+                  <p className="text-[24px] font-bold md:text-white">
+                    {movie.title}
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <Star className="text-yellow-300 fill-yellow-300 w-[28px] h-[28px]" />
+                  <p className="text-[18px] font-bold md:text-white">
+                    {movie.vote_average.toFixed(1)}
+                  </p>
+                  <p className="text-[16px] text-gray-500">/10</p>
+                </div>
               </div>
-              <div className="flex items-center">
-                <Star className="text-yellow-300 fill-yellow-300 w-[28px] h-[28px]" />
-                <p className="text-[18px] font-bold md:text-white">
-                  {movie.vote_average.toFixed(1)}
-                </p>
-                <p className="text-[16px] text-gray-500">/10</p>
+              <div className="py-4 md:text-white">
+                <p>{movie.overview}</p>
               </div>
-            </div>
-            <div className="py-4 md:text-white">
-              <p>{movie.overview}</p>
-            </div>
-            <div>
-              <MovieTrailer
-                className="text-[14px] text-white  items-center gap-2 md:text-black"
-                movieId={movie.id}
-              />
+              <div onClick={watchTrailer}>
+                <MovieTrailer
+                  className="text-[14px] text-white  items-center gap-2 md:text-black"
+                  movieId={movie.id}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className="px-4 py-4 items-start flex-col flex w-[404px] h-[264px block md:hidden">
@@ -62,8 +67,11 @@ export const MovieCarouselItem = ({ movie }) => {
             their friendship reaches a crossroads.{" "}
           </p>
         </div>
-        <div className="flex justify-center items-center w-[145px] h-[40px] rounded-md bg-black ">
-          <MovieTrailer />
+        <div
+          onClick={watchTrailer}
+          className="flex justify-center items-center w-[145px] h-[40px] rounded-md bg-black "
+        >
+          <MovieTrailer movieId={movie.id} />
         </div>
       </div>
     </div>

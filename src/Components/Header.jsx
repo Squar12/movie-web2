@@ -2,7 +2,7 @@ import { ChevronDown, Film, Moon, Search } from "lucide-react";
 
 export const Header = () => {
   return (
-    <div className="flex items-center justify-between w-[375px] h-[59px] pt-[15px]  md:w-[1280px] mx-auto">
+    <div className="flex items-center justify-between w-[375px] h-[59px] pt-[20px]  md:w-[1280px] mx-auto">
       <div className="flex items-center ml-[20px]">
         <Film className="text-indigo-700 w-[16px] h-[16px]" />
         <p className="text-indigo-700 text-[16px]">Movie Z</p>
@@ -34,4 +34,3 @@ export const Header = () => {
     </div>
   );
 };
-ç;

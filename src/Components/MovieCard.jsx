@@ -1,8 +1,6 @@
-import { LogIn, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 export const MovieCard = ({ movie }) => {
-  console.log(movie);
-
   return (
     <div>
       <img

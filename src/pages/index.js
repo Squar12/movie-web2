@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
-  console.log(nowPlayingMovie);
+
   const getNowPlayingMovie = async () => {
     try {
       const response = await fetch(
