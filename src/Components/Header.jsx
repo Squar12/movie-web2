@@ -1,4 +1,5 @@
-import { ChevronDown, Film, Moon, Search } from "lucide-react";
+import { Film, Moon, Search } from "lucide-react";
+import { GenresDropdown } from "./Genres";
 
 export const Header = () => {
   return (
@@ -12,10 +13,7 @@ export const Header = () => {
           <Search className="w-[12px] h-[12px]" />
         </button>
         <div className="gap-4 sm:flex hidden">
-          <div className="flex border w-[97px] h-[36px] items-center justify-center rounded-sm">
-            <ChevronDown className="w-[16px] h-[16px]" />
-            <p className="text-sm">Genre</p>
-          </div>
+          <GenresDropdown />
           <div className="flex items-center border rounded-sm">
             <Search className="w-[16px] h-[16px] text-gray-500" />
             <input

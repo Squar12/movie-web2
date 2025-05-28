@@ -1,5 +1,6 @@
 import { MovieCarousel } from "@/Components/Carousel";
 import { Footer } from "@/Components/Footer";
+import { GenresDropdown } from "@/Components/Genres";
 import { Header } from "@/Components/Header";
 import { Popular } from "@/Components/Popular";
 import { TopRated } from "@/Components/TopRated";

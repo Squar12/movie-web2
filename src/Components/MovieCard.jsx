@@ -16,7 +16,7 @@ export const MovieCard = ({ movie }) => {
             <p className="text-[12px] text-gray-500 md:text-[14px]">/10</p>
           </div>
           <p className="text-[14px] w-[141px] h-[40px] md:text-[18px]">
-            {movie?.title}
+            {movie?.original_title}
           </p>
         </div>
       </div>
