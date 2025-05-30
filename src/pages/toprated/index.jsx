@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import { MovieCard } from "./MovieCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { MovieCard } from "@/Components/MovieCard";
 
-export const TopRated = () => {
+const TopRatedPage = () => {
   const [topRatedMovie, setTopRatedMovie] = useState([]);
-  const topRatedMovies = async () => {
+  const TopRatedMovies = async () => {
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/top_rated?language=en-US&page=1`,
@@ -26,7 +26,7 @@ export const TopRated = () => {
   };
 
   useEffect(() => {
-    topRatedMovies();
+    TopRatedMovies();
   }, []);
 
   return (
@@ -34,14 +34,12 @@ export const TopRated = () => {
       <div className="flex justify-between items-center h-[36px] p-[20px]">
         <p className="text-[24px] font-bold">Top Rated</p>
         <div className="flex items-center">
-          <Link href={`/toprated`}>
-            <p className="text-[14px]">See more</p>
-          </Link>
+          <p className="text-[14px]">See more</p>
           <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
         </div>
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
-        {topRatedMovie.slice(0, 10).map((movie, index) => (
+        {topRatedMovie?.map((movie, index) => (
           <Link href={`/details/${movie.id}`}>
             <MovieCard movie={movie} key={index}></MovieCard>
           </Link>
@@ -50,3 +48,5 @@ export const TopRated = () => {
     </div>
   );
 };
+
+export default TopRatedPage;

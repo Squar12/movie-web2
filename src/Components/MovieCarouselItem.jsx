@@ -8,7 +8,7 @@ export const MovieCarouselItem = ({ movie }) => {
   return (
     <div>
       <div
-        className="w-full relative h-[375px] md:h-[600px]"
+        className="w-full relative h-[375px] md:h-[700px]"
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -47,7 +47,7 @@ export const MovieCarouselItem = ({ movie }) => {
         </Link>
       </div>
 
-      <div className="px-4 py-4 items-start flex-col flex w-[404px] h-[264px block md:hidden">
+      <div className="px-4 py-4 items-start  flex-col flex w-[404px] h-[264px block md:hidden">
         <div className="flex justify-center visible md:invisible">
           <div className="w-[252px] h-[52px] visible md:invisible">
             <p className="text-[14px] md:text-white">Now Playing:</p>
@@ -59,17 +59,12 @@ export const MovieCarouselItem = ({ movie }) => {
             <p className="text-[16px] text-gray-500">/10</p>
           </div>
         </div>
-        <div className="py-4 visible md:invisible">
-          <p className="text-[14px]">
-            Elphaba, a misunderstood young woman because of her green skin, and
-            Glinda, a popular girl, become friends at Shiz University in the
-            Land of Oz. After an encounter with the Wonderful Wizard of Oz,
-            their friendship reaches a crossroads.{" "}
-          </p>
+        <div className="py-4 visible w-[335px] h-[100px]  md:invisible">
+          <p className="text-[14px] px-1">{movie.overview}</p>
         </div>
         <div
           onClick={watchTrailer}
-          className="flex justify-center items-center w-[145px] h-[40px] rounded-md bg-black "
+          className="flex justify-center items-center  w-[145px] h-[40px] rounded-md bg-black "
         >
           <MovieTrailer movieId={movie.id} />
         </div>

@@ -49,7 +49,7 @@ export const GenresDropdown = () => {
         <p className="text-sm">Genre</p>
         <ChevronDown className="w-[16px] h-[16px] mr-1" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="grid grid-cols-4 gap-2">
         {genres.map((genre) => (
           <Link href={`/search/s?genres=${genre.id}`} key={genre.id}>
             <DropdownMenuItem>{genre.name}</DropdownMenuItem>

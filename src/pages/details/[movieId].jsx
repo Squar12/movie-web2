@@ -7,8 +7,6 @@ export default function Page() {
   const router = useRouter();
   const movieId = router.query?.movieId;
 
-  console.log(movieId);
-
   const getNowPlayingMovie = async () => {
     if (!movieId) return;
     try {
@@ -24,8 +22,6 @@ export default function Page() {
       );
       const data = await response.json();
 
-      console.log(data);
-
       setMovie(data);
     } catch (error) {
       console.log(error);
@@ -35,6 +31,7 @@ export default function Page() {
   useEffect(() => {
     getNowPlayingMovie();
   }, [movieId]);
+  console.log(movie);
   return (
     <div>
       <MovieDetails movie={movie} />

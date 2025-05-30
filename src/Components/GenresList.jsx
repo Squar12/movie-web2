@@ -45,18 +45,26 @@ export const GenresList = () => {
   };
 
   return (
-    <div>
-      {genres.map((genre) => (
-        <Button
-          key={genre.id}
-          variant={
-            genresQuery?.includes(`${genre.id}`) ? "default" : "secondary"
-          }
-          onClick={() => onChangeGenres(genre.id)}
-        >
-          {genre.name}
-        </Button>
-      ))}
+    <div className="mt-[52px]">
+      <div>
+        <p className="text-[24px] font-bold">Genres</p>
+        <p className="text-[16px]">See lists of movies by genre</p>
+      </div>
+
+      <div className="max-w-[387px] flex flex-wrap gap-2 pt-[20px]">
+        {genres.map((genre) => (
+          <Button
+            className="rounded-xl text-black font-bold hover:bg-gray-400 text-[12px] transition-all"
+            key={genre.id}
+            variant={
+              genresQuery?.includes(`${genre.id}`) ? "default" : "secondary"
+            }
+            onClick={() => onChangeGenres(genre.id)}
+          >
+            {genre.name}
+          </Button>
+        ))}
+      </div>
     </div>
   );
 };

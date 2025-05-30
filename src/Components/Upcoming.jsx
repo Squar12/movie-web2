@@ -1,10 +1,11 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Link2 } from "lucide-react";
 import { MovieCard } from "./MovieCard";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export const Upcoming = () => {
   const [upComingMovie, setUpComingMovie] = useState([]);
-  const UpComingMovies = async () => {
+  const upComingMovies = async () => {
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/upcoming?language=en-US&page=1`,
@@ -25,7 +26,7 @@ export const Upcoming = () => {
   };
 
   useEffect(() => {
-    UpComingMovies();
+    upComingMovies();
   }, []);
 
   return (
@@ -33,13 +34,17 @@ export const Upcoming = () => {
       <div className="flex justify-between items-center h-[36px] p-[20px]">
         <p className="text-[24px] font-bold">Upcoming</p>
         <div className="flex items-center">
-          <p className="text-[14px]">See more</p>
+          <Link href={`/upcoming/`}>
+            <p className="text-[14px]">See more</p>
+          </Link>
           <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
         </div>
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
         {upComingMovie.slice(0, 10).map((movie, index) => (
-          <MovieCard movie={movie} key={index}></MovieCard>
+          <Link href={`/details/${movie.id}`}>
+            <MovieCard movie={movie} key={index}></MovieCard>
+          </Link>
         ))}
       </div>
     </div>
