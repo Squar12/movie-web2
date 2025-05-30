@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 export const MovieCard = ({ movie }) => {
   return (
-    <div>
+    <div className="overflow-hidden  transform transition-transform duration-150 hover:scale-105">
       <img
         className="w-[158px] h-[234px] md:w-[230px] md:h-[340px] rounded-t-sm object-cover"
         src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}

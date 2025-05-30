@@ -1,10 +1,12 @@
 import { Star } from "lucide-react";
 import { MovieTrailer } from "./MovieTrailer";
 import Link from "next/link";
+
 export const MovieCarouselItem = ({ movie }) => {
   const watchTrailer = (event) => {
     event.preventDefault();
   };
+
   return (
     <div>
       <div
