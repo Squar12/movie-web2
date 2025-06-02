@@ -3,9 +3,12 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Button } from "./ui/button";
 import { SimilarMovies } from "./SimilarMovies";
+import Link from "next/link";
+import { MovieTrailer } from "./MovieTrailer";
 
 export const MovieDetails = ({ movie }) => {
   return (
+    // utas-----------
     <div>
       <div className="md:hidden">
         <Header />
@@ -19,7 +22,7 @@ export const MovieDetails = ({ movie }) => {
             <div>
               <div className="flex gap-1 items-center">
                 <p className="text-[12px] font-bold md:text-[14px]">
-                  {movie.vote_average?.toFixed(1)}
+                  {movie?.vote_average?.toFixed(1)}
                 </p>
                 <p className="text-[12px] text-gray-500 md:text-[14px]">/10</p>
               </div>
@@ -30,12 +33,13 @@ export const MovieDetails = ({ movie }) => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="relative">
             <img
               className="w-[375px] h-[211px]"
               src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
               alt=""
             />
+            <MovieTrailer movieId={movie?.id} />
           </div>
         </div>
         <div className="flex px-5 gap-10 pt-[32px]">
@@ -49,7 +53,7 @@ export const MovieDetails = ({ movie }) => {
               {movie?.genres?.map((genres, index) => (
                 <div>
                   <Button
-                    className="w-[100px] h-[20px] rounded-full bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300"
+                    className="w-[100px] h-[20px] rounded-full bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300]"
                     key={index}
                   >
                     {genres.name}
@@ -58,7 +62,7 @@ export const MovieDetails = ({ movie }) => {
               ))}
             </div>
             <div className="pt-[20px]">
-              <p className="text-[16px]">{movie.overview}</p>
+              <p className="text-[16px]">{movie?.overview}</p>
             </div>
           </div>
         </div>
@@ -86,21 +90,24 @@ export const MovieDetails = ({ movie }) => {
         <div>
           <div className="flex justify-between items-center h-[36px] p-[20px] pt-[38px]">
             <p className="text-[24px] font-bold">More like this</p>
-            <div className="flex items-center">
-              <p className="text-[14px]">See more</p>
-              <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
-            </div>
+            <Link href={`/similar/${movie?.id}`}>
+              <div className="flex items-center">
+                <p className="text-[14px]">See more</p>
+                <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
+              </div>
+            </Link>
           </div>
 
           <div className="py-[5px]">
             <div>
-              <SimilarMovies movieId={movie.id} />
+              <SimilarMovies movieId={movie?.id} />
             </div>
           </div>
 
           <Footer />
         </div>
       </div>
+      {/* utas---------------- */}
       <div className="hidden sm:block">
         <Header />
         <div className="w-[1080px] flex  justify-between mx-auto pt-[32px] pb-[16px]">
@@ -114,7 +121,7 @@ export const MovieDetails = ({ movie }) => {
               <p className="text-[12px] font-bold">Rating</p>
               <div className="flex gap-1 items-center">
                 <p className="text-[16px] font-bold md:text-[14px]">
-                  {movie.vote_average?.toFixed(1)}
+                  {movie?.vote_average?.toFixed(1)}
                 </p>
                 <p className="text-[14px] text-gray-500 md:text-[14px]">/10</p>
               </div>
@@ -135,9 +142,10 @@ export const MovieDetails = ({ movie }) => {
             src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
             alt=""
           />
-          <Button className="absolute bottom-0 mb-[30px] mr-[180px] text-black bg-white">
+          {/* <Button className="absolute bottom-0 mb-[30px] mr-[180px] text-black bg-white">
             Watch Trailer
-          </Button>
+          </Button> */}
+          <MovieTrailer movieId={movie?.id} />
         </div>
         <div className="mx-auto w-[1080px]">
           <div className="w-[1080px] pt-[22px]">
@@ -154,7 +162,7 @@ export const MovieDetails = ({ movie }) => {
               ))}
             </div>
             <div className="pt-[20px]">
-              <p className="text-[16px]">{movie.overview}</p>
+              <p className="text-[16px]">{movie?.overview}</p>
             </div>
           </div>
           <div className="pt-[20px]">
@@ -183,14 +191,19 @@ export const MovieDetails = ({ movie }) => {
           <div>
             <div className="flex justify-between items-center h-[36px] p-[20px] pt-[48px]">
               <p className="text-[24px] font-bold">More like this</p>
-              <div className="flex items-center">
-                <p className="text-[14px]">See more</p>
-                <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
-              </div>
+              <Link href={`/similar/${movie?.id}`}>
+                <div className="flex items-center">
+                  <p className="text-[14px]">See more</p>
+                  <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
+                </div>
+              </Link>
             </div>
+
             <div className="py-[20px]">
               <div>
-                <SimilarMovies movieId={movie.id} />
+                <Link href={`/details/`}>
+                  <SimilarMovies movieId={movie?.id} />
+                </Link>
               </div>
             </div>
             <Footer />

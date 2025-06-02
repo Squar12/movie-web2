@@ -1,6 +1,7 @@
 import { Film, Moon, Search } from "lucide-react";
 import { GenresDropdown } from "./Genres";
 import Link from "next/link";
+import { DarkMode } from "./DarkMode";
 
 export const Header = () => {
   return (
@@ -28,9 +29,10 @@ export const Header = () => {
         </div>
       </div>
       <div>
-        <button className="w-[36px] h-[36px] border-gray-400 border-1 rounded-xl flex justify-center items-center">
+        {/* <button className="w-[36px] h-[36px] border-gray-400 border-1 rounded-xl flex justify-center items-center">
           <Moon className="w-[12px] h-[12px]" />
-        </button>
+        </button> */}
+        <DarkMode />
       </div>
     </div>
   );

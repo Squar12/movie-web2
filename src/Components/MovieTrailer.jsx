@@ -6,26 +6,31 @@ import { getMovieTrailer } from "../../utils/getMovieTrailer";
 
 export const MovieTrailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState([]);
+
   useEffect(() => {
     const getMovieTrailerById = async () => {
       if (!movieId) return;
       try {
         const data = await getMovieTrailer(movieId);
+
         setTrailer(data.results);
       } catch (error) {
         console.error("Failed to fetch movie trailer:", error);
       }
     };
     getMovieTrailerById();
-  }, []);
+  }, [movieId]);
 
-  const movieTrailer = trailer.find(
+  const movieTrailer = trailer?.find(
     (video) => video.name === "Official Trailer"
   );
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Watch Trailer</Button>
+        <Button className="absolute bottom-0 mb-[30px] mr-[180px] text-black bg-white">
+          Watch Trailer
+        </Button>
       </DialogTrigger>
       <DialogContent className="p-0 overflow-hidden md:min-w-[1080px]">
         <YouTube

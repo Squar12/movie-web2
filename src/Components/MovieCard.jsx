@@ -8,7 +8,7 @@ export const MovieCard = ({ movie }) => {
         src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
         alt=""
       />
-      <div className=" bg-gray-200 w-[158px] h-[76px] md:w-[230px] md:h-[115px] rounded-b-sm">
+      <div className=" bg-gray-200 w-[158px] h-[76px] md:w-[230px] md:h-[115px] rounded-b-sm dark:bg-gray-800">
         <div className="ml-2 pt-2">
           <div className="flex gap-1 items-center">
             <Star className="text-yellow-300 fill-yellow-300 w-[14px] h-[13px] md:w-[16px] md:h-[16px]" />

@@ -45,7 +45,7 @@ export const GenresDropdown = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex border w-[97px] h-[36px] items-center justify-center rounded-sm cursor-pointer bg-white">
+      <DropdownMenuTrigger className="flex border w-[97px] h-[36px] items-center justify-center rounded-sm cursor-pointer bg-white dark:bg-gray-800">
         <p className="text-sm">Genre</p>
         <ChevronDown className="w-[16px] h-[16px] mr-1" />
       </DropdownMenuTrigger>
