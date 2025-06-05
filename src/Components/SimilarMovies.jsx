@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
+import Link from "next/link";
 
 export const SimilarMovies = ({ movieId }) => {
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -30,9 +31,13 @@ export const SimilarMovies = ({ movieId }) => {
   }, [movieId]);
 
   return (
-    <div className="grid grid-cols-4 gap-[32px] px-5 py-3">
-      {similarMovies?.slice(0, 4).map((movie) => {
-        return <MovieCard key={movie.id} movie={movie} />;
+    <div className="grid grid-cols-3 gap-[32px] px-5 py-3 md:grid md:grid-cols-5 md:gap-[32px]">
+      {similarMovies?.slice(0, 5).map((movie) => {
+        return (
+          <Link href={`/details/${movie.id}`}>
+            <MovieCard key={movie.id} movie={movie} />
+          </Link>
+        );
       })}
     </div>
   );

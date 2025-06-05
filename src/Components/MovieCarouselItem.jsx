@@ -10,7 +10,7 @@ export const MovieCarouselItem = ({ movie }) => {
   return (
     <div>
       <div
-        className="w-full relative h-[375px] md:h-[700px]"
+        className="w-full relative h-[375px] md:h-[760px]"
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -18,10 +18,10 @@ export const MovieCarouselItem = ({ movie }) => {
         }}
       >
         <Link href={`/details/${movie.id}`}>
-          <div className="w-screen mx-auto h-full invisible md:visible">
+          <div className="[w-screen mx-auto h-full invisible md:visible">
             <div className="pl-[60px] pt-[200px] px-4 py-4 items-start flex-col flex w-[404px] h-[264px] top-[178px] left-[140px]">
               <div className="flex justify-center">
-                <div className="w-[252px] h-[52px]">
+                <div className="w-[252px] ">
                   <p className="text-[14px] md:text-white">Now Playing:</p>
                   <p className="text-[24px] font-bold md:text-white">
                     {movie.title}
@@ -48,29 +48,31 @@ export const MovieCarouselItem = ({ movie }) => {
           </div>
         </Link>
       </div>
-
-      <div className="px-4 py-4 items-start  flex-col flex w-[404px] h-[264px block md:hidden">
-        <div className="flex justify-center visible md:invisible">
-          <div className="w-[252px] h-[52px] visible md:invisible">
+      {/* utas-----------> */}
+      <div className="px-4 py-4 items-start  flex-col flex md:hidden">
+        <div className="flex">
+          <div className="w-full h-[52px] visible md:invisible">
             <p className="text-[14px] md:text-white">Now Playing:</p>
             <p className="text-[24px] font-bold md:text-white">Wicked</p>
           </div>
           <div className="flex items-center">
-            <Star className="text-yellow-300 fill-yellow-300 w-[28px] h-[28px]" />
+            <Star className="text-yellow-300 fill-yellow-300 " />
             <p className="text-[18px] font-bold md:text-white">6.9</p>
             <p className="text-[16px] text-gray-500">/10</p>
           </div>
         </div>
-        <div className="py-4 visible w-[335px] h-[100px]  md:invisible">
-          <p className="text-[14px] px-1">{movie.overview}</p>
+        <div className="py-4 visible w-full  md:invisible">
+          <p className="text-[14px] flex items-center px-1">{movie.overview}</p>
         </div>
-        <div
+        {/* <div
           onClick={watchTrailer}
-          className="flex justify-center items-center  w-[145px] h-[40px] rounded-md bg-black "
-        >
-          <MovieTrailer movieId={movie.id} />
-        </div>
+          className="flex justify-center items-center "
+        ></div> */}
+      </div>
+      <div className="pl-[16px]">
+        <MovieTrailer movieId={movie.id} className="" />
       </div>
     </div>
+    // utas------------>
   );
 };

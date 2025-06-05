@@ -12,7 +12,7 @@ export const getMovieTrailer = async (movieId) => {
     );
 
     const movies = await response.json();
-    console.log(movies);
+
     return movies;
   } catch (error) {
     console.log(error);

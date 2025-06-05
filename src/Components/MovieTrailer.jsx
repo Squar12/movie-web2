@@ -28,9 +28,7 @@ export const MovieTrailer = ({ movieId }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="absolute bottom-0 mb-[30px] mr-[180px] text-black bg-white">
-          Watch Trailer
-        </Button>
+        <Button>Watch Trailer</Button>
       </DialogTrigger>
       <DialogContent className="p-0 overflow-hidden md:min-w-[1080px]">
         <YouTube

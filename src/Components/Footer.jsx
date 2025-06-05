@@ -2,7 +2,7 @@ import { Film, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="bg-indigo-700 h-308px md: md:h-[230px] w-full">
+    <div className="bg-indigo-700 h-308px md: md:h-[230px] max-w-fill">
       <div className="max-w-[1280px] mx-auto">
         <div className="py-10 px-5 md:flex items-center justify-between">
           <div className="md:w-[247px] md:[200px]">

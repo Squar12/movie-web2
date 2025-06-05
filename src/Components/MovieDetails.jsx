@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { SimilarMovies } from "./SimilarMovies";
 import Link from "next/link";
 import { MovieTrailer } from "./MovieTrailer";
+import MovieCrew from "./movie-crew/MovieCrew";
 
 export const MovieDetails = ({ movie }) => {
   return (
@@ -67,25 +68,7 @@ export const MovieDetails = ({ movie }) => {
           </div>
         </div>
         <div className="px-5">
-          <div>
-            <p className="text-[16px] font-bold">Director</p>
-            <p className="text-[16px]">Jon M. Chu</p>
-            <div className="border w-[335px]"></div>
-          </div>
-          <div className="pt-[20px]">
-            <p className="text-[16px] font-bold">Writers</p>
-            <p className="text-[16px]">
-              Winnie Holzman · Dana Fox · Gregory Maguire
-            </p>
-            <div className="border w-[335px]"></div>
-          </div>
-          <div className="pt-[20px]">
-            <p className="text-[16px] font-bold">Stars</p>
-            <p className="text-[16px]">
-              Cynthia Erivo · Ariana Grande · Jeff Goldblum
-            </p>
-            <div className="border w-[335px]"></div>
-          </div>
+          <MovieCrew movieId={movie.id} />
         </div>
         <div>
           <div className="flex justify-between items-center h-[36px] p-[20px] pt-[38px]">
@@ -110,7 +93,7 @@ export const MovieDetails = ({ movie }) => {
       {/* utas---------------- */}
       <div className="hidden sm:block">
         <Header />
-        <div className="w-[1080px] flex  justify-between mx-auto pt-[32px] pb-[16px]">
+        <div className="w-[1280px] flex  justify-between mx-auto pt-[32px] pb-[16px]">
           <div>
             <p className="text-[36px] font-bold">{movie?.title}</p>
             <p className="text-[18px]">{movie?.release_date}</p>
@@ -142,22 +125,21 @@ export const MovieDetails = ({ movie }) => {
             src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
             alt=""
           />
-          {/* <Button className="absolute bottom-0 mb-[30px] mr-[180px] text-black bg-white">
-            Watch Trailer
-          </Button> */}
           <MovieTrailer movieId={movie?.id} />
         </div>
-        <div className="mx-auto w-[1080px]">
-          <div className="w-[1080px] pt-[22px]">
+        <div className="mx-auto w-[1280px]">
+          <div className="w-[1280px] pt-[22px]">
             <div className="flex gap-3">
               {movie?.genres?.map((genres, index) => (
                 <div>
-                  <Button
-                    className="w-[100px] h-[20px] rounded-full bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300"
-                    key={index}
-                  >
-                    {genres.name}
-                  </Button>
+                  <Link href={`/search/s?genres=${genres.id}`}>
+                    <Button
+                      className="w-[100px] h-[30px] rounded-sm bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300"
+                      key={index}
+                    >
+                      {genres.name}
+                    </Button>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -166,50 +148,27 @@ export const MovieDetails = ({ movie }) => {
             </div>
           </div>
           <div className="pt-[20px]">
-            <div
-            // src={`${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/${movie.id}/credits?language=en-US`}
-            >
-              <p className="text-[16px] font-bold">Director</p>
-              <p className="text-[16px]">Jon M. Chu</p>
-              <div className="border w-[1080px]"></div>
-            </div>
-            <div className="pt-[20px]">
-              <p className="text-[16px] font-bold">Writers</p>
-              <p className="text-[16px]">
-                Winnie Holzman · Dana Fox · Gregory Maguire
-              </p>
-              <div className="border w-[1080px]"></div>
-            </div>
-            <div className="pt-[20px]">
-              <p className="text-[16px] font-bold">Stars</p>
-              <p className="text-[16px]">
-                Cynthia Erivo · Ariana Grande · Jeff Goldblum
-              </p>
-              <div className="border w-[1080px]"></div>
-            </div>
+            <MovieCrew movieId={movie.id} />
           </div>
           <div>
             <div className="flex justify-between items-center h-[36px] p-[20px] pt-[48px]">
               <p className="text-[24px] font-bold">More like this</p>
               <Link href={`/similar/${movie?.id}`}>
-                <div className="flex items-center">
+                <div className="flex items-center justify-center">
                   <p className="text-[14px]">See more</p>
                   <ArrowRight className="w-[12px] h-[12px] pt-[1px]" />
                 </div>
               </Link>
             </div>
-
             <div className="py-[20px]">
               <div>
-                <Link href={`/details/`}>
-                  <SimilarMovies movieId={movie?.id} />
-                </Link>
+                <SimilarMovies movieId={movie?.id} />
               </div>
             </div>
-            <Footer />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

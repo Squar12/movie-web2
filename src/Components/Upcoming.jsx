@@ -2,9 +2,11 @@ import { ArrowRight, Link2 } from "lucide-react";
 import { MovieCard } from "./MovieCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { MovieCardLoader } from "./MovieCArdLoader";
 
 export const Upcoming = () => {
   const [upComingMovie, setUpComingMovie] = useState([]);
+  const [loading, setLoading] = useState(true);
   const upComingMovies = async () => {
     try {
       const response = await fetch(
@@ -23,6 +25,7 @@ export const Upcoming = () => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -41,11 +44,17 @@ export const Upcoming = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
-        {upComingMovie.slice(0, 10).map((movie, index) => (
-          <Link href={`/details/${movie.id}`}>
-            <MovieCard movie={movie} key={index}></MovieCard>
-          </Link>
-        ))}
+        {loading
+          ? upComingMovie
+              .slice(0, 10)
+              .map((movie, index) => (
+                <MovieCardLoader movie={movie} key={index}></MovieCardLoader>
+              ))
+          : upComingMovie.slice(0, 10).map((movie, index) => (
+              <Link href={`/details/${movie.id}`}>
+                <MovieCard movie={movie} key={index}></MovieCard>
+              </Link>
+            ))}
       </div>
     </div>
   );
