@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import YouTube from "react-youtube";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
-import { getMovieTrailer } from "../../utils/getMovieTrailer";
+import { getMovieTrailer } from "../utils/getMovieTrailer";
 
 export const MovieTrailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState([]);
