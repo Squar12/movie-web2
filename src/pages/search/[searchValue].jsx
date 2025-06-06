@@ -1,5 +1,3 @@
-import { MovieDetails } from "@/Components/MovieDetails";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useQueryState } from "nuqs";
 import { MovieCard } from "@/Components/MovieCard";
@@ -50,7 +48,7 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-4 gap-[48px]">
             {genreMovies.slice(0, 8).map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <MovieCard key={movie?.id} movie={movie} />
             ))}
           </div>
         </div>

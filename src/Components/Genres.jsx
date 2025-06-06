@@ -1,15 +1,12 @@
+import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import { ChevronDown } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+} from "./ui/dropdown-menu";
 
 export const GenresDropdown = () => {
   const [genres, setGenres] = useState([]);

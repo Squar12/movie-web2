@@ -40,7 +40,9 @@ export const MovieDetails = ({ movie }) => {
               src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
               alt=""
             />
-            <MovieTrailer movieId={movie?.id} />
+            <div className="absolute left-5 bottom-3">
+              <MovieTrailer movieId={movie?.id} />
+            </div>
           </div>
         </div>
         <div className="flex px-5 gap-10 pt-[32px]">
@@ -50,14 +52,11 @@ export const MovieDetails = ({ movie }) => {
             alt=""
           />
           <div className="w-[201px] h-auto">
-            <div className="gap-3 ">
-              {movie?.genres?.map((genres, index) => (
-                <div>
-                  <Button
-                    className="w-[100px] h-[20px] rounded-full bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300]"
-                    key={index}
-                  >
-                    {genres.name}
+            <div className="">
+              {movie?.genres?.map((genre) => (
+                <div key={genre?.id}>
+                  <Button className="w-[80px] h-[20px] rounded-full  bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300]">
+                    {genre.name}
                   </Button>
                 </div>
               ))}
@@ -68,7 +67,7 @@ export const MovieDetails = ({ movie }) => {
           </div>
         </div>
         <div className="px-5">
-          <MovieCrew movieId={movie.id} />
+          <MovieCrew movieId={movie?.id} />
         </div>
         <div>
           <div className="flex justify-between items-center h-[36px] p-[20px] pt-[38px]">
@@ -114,30 +113,34 @@ export const MovieDetails = ({ movie }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center gap-[32px] relative">
+        <div className="flex justify-center gap-[32px]">
           <img
             className="w-[290px] h-[428px]"
             src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.poster_path}`}
             alt=""
           />
-          <img
-            className="w-[760] h-[428px]"
-            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
-            alt=""
-          />
-          <MovieTrailer movieId={movie?.id} />
+          <div className="relative">
+            <img
+              className="w-[960px] h-[428px] "
+              src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
+              alt=""
+            />
+            <div className="absolute left-10 bottom-10">
+              <MovieTrailer movieId={movie?.id} />
+            </div>
+          </div>
         </div>
         <div className="mx-auto w-[1280px]">
           <div className="w-[1280px] pt-[22px]">
             <div className="flex gap-3">
-              {movie?.genres?.map((genres, index) => (
-                <div>
-                  <Link href={`/search/s?genres=${genres.id}`}>
+              {movie?.genres?.map((genre) => (
+                <div key={genre?.id}>
+                  <Link href={`/search/s?genres=${genre?.id}`}>
                     <Button
                       className="w-[100px] h-[30px] rounded-sm bg-gray-100 text-[12px] font-bold text-black  hover:bg-gray-300"
-                      key={index}
+                      key={genre?.id}
                     >
-                      {genres.name}
+                      {genre.name}
                     </Button>
                   </Link>
                 </div>
@@ -148,7 +151,7 @@ export const MovieDetails = ({ movie }) => {
             </div>
           </div>
           <div className="pt-[20px]">
-            <MovieCrew movieId={movie.id} />
+            <MovieCrew movieId={movie?.id} />
           </div>
           <div>
             <div className="flex justify-between items-center h-[36px] p-[20px] pt-[48px]">

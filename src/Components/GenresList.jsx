@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQueryState, parseAsArrayOf } from "nuqs";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 
 export const GenresList = () => {
   const [genresQuery, setGenresQuery] = useQueryState("genres", parseAsArrayOf);

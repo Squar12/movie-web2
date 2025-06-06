@@ -34,9 +34,9 @@ export default function MovieCrew({ movieId }) {
   const directors = movieCrews.crew
     ?.filter((crewMember) => crewMember.department === "Directing")
     .slice(0, 3);
-  const writers = movieCrews.crew?.filter(
-    (crewMember) => crewMember.department === "Writing"
-  );
+  const writers = movieCrews.crew
+    ?.filter((crewMember) => crewMember.department === "Writing")
+    .slice(0, 3);
   const stars = movieCrews.cast
     ?.filter((castMember) => castMember.known_for_department === "Acting")
     .slice(0, 3);

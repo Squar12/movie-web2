@@ -1,12 +1,13 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+  PaginationEllipsis,
+} from "./ui/pagination";
+
 export const PaginationPage = () => {
   return (
     <div>

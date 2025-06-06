@@ -31,11 +31,11 @@ export const SimilarMovies = ({ movieId }) => {
   }, [movieId]);
 
   return (
-    <div className="grid grid-cols-3 gap-[32px] px-5 py-3 md:grid md:grid-cols-5 md:gap-[32px]">
+    <div className="grid grid-cols-2 gap-[20px] px-5 py-3 md:grid md:grid-cols-5 md:gap-[32px]">
       {similarMovies?.slice(0, 5).map((movie) => {
         return (
-          <Link href={`/details/${movie.id}`}>
-            <MovieCard key={movie.id} movie={movie} />
+          <Link key={similarMovies.id} href={`/details/${movie?.id}`}>
+            <MovieCard key={movie?.id} movie={movie} />
           </Link>
         );
       })}

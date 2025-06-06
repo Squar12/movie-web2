@@ -1,6 +1,5 @@
 import { MovieCarousel } from "@/Components/Carousel";
 import { Footer } from "@/Components/Footer";
-import { GenresDropdown } from "@/Components/Genres";
 import { Header } from "@/Components/Header";
 import { HomeLoader } from "@/Components/HomeLoader";
 import { Popular } from "@/Components/Popular";
@@ -25,7 +24,6 @@ export default function Home() {
         }
       );
       const movies = await response.json();
-      console.log(response);
 
       setNowPlayingMovie(movies.results);
     } catch (error) {

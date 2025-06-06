@@ -42,7 +42,7 @@ export const TopRated = () => {
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
         {topRatedMovie.slice(0, 10).map((movie, index) => (
-          <Link href={`/details/${movie.id}`}>
+          <Link key={movie?.id} href={`/details/${movie?.id}`}>
             <MovieCard movie={movie} key={index}></MovieCard>
           </Link>
         ))}

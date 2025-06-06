@@ -1,14 +1,12 @@
 import * as React from "react";
-
+import { MovieCarouselItem } from "./MovieCarouselItem";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { MovieCarouselItem } from "./MovieCarouselItem";
-import Swiper from "swiper";
+} from "./ui/carousel";
 
 export const MovieCarousel = ({ nowPlayingMovie }) => {
   return (

@@ -45,7 +45,7 @@ const SimilarPage = () => {
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
         {similarMovies?.map((movie, index) => (
-          <Link href={`/details/${movie.id}`}>
+          <Link key={similarMovies.id} href={`/details/${movie?.id}`}>
             <MovieCard movie={movie} key={index}></MovieCard>
           </Link>
         ))}

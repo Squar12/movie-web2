@@ -17,7 +17,7 @@ export const MovieCarouselItem = ({ movie }) => {
           backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie.backdrop_path})`,
         }}
       >
-        <Link href={`/details/${movie.id}`}>
+        <Link href={`/details/${movie?.id}`}>
           <div className="[w-screen mx-auto h-full invisible md:visible">
             <div className="pl-[60px] pt-[200px] px-4 py-4 items-start flex-col flex w-[404px] h-[264px] top-[178px] left-[140px]">
               <div className="flex justify-center">
@@ -41,7 +41,7 @@ export const MovieCarouselItem = ({ movie }) => {
               <div onClick={watchTrailer}>
                 <MovieTrailer
                   className="text-[14px] text-white  items-center gap-2 md:text-black"
-                  movieId={movie.id}
+                  movieId={movie?.id}
                 />
               </div>
             </div>
@@ -69,8 +69,8 @@ export const MovieCarouselItem = ({ movie }) => {
           className="flex justify-center items-center "
         ></div> */}
       </div>
-      <div className="pl-[16px]">
-        <MovieTrailer movieId={movie.id} className="" />
+      <div className="pl-[16px] md:hidden">
+        <MovieTrailer movieId={movie?.id} />
       </div>
     </div>
     // utas------------>

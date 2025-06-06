@@ -2,14 +2,7 @@ import { Separator } from "@radix-ui/react-dropdown-menu";
 import { ArrowRight, Star } from "lucide-react";
 
 export const SearchResultCard = ({ movie }) => {
-  const {
-    backdrop_path,
-    vote_average,
-    original_title,
-    id,
-    release_date,
-    poster_path,
-  } = movie;
+  const { vote_average, original_title, release_date, poster_path } = movie;
   const imageUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/${poster_path}`;
 
   return (

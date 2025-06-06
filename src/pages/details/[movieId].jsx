@@ -31,7 +31,9 @@ export default function Page() {
   useEffect(() => {
     getNowPlayingMovie();
   }, [movieId]);
-  console.log(movie);
+
+  if (!movie?.id) return null;
+
   return (
     <div>
       <MovieDetails movie={movie} />
