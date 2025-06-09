@@ -2,9 +2,11 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MovieCard } from "./MovieCard";
+import { MovieCardLoader } from "./skeleton/MovieCardLoader";
 
 export const Popular = () => {
   const [popularMovie, setPopularMovie] = useState([]);
+  const [loading, setLoading] = useState(true);
   const popularMovies = async () => {
     try {
       const response = await fetch(
@@ -23,6 +25,7 @@ export const Popular = () => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -41,11 +44,17 @@ export const Popular = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 px-4 gap-5 md:grid-cols-5">
-        {popularMovie.slice(0, 10).map((movie, index) => (
-          <Link key={movie?.id} href={`/details/${movie?.id}`}>
-            <MovieCard movie={movie} key={index}></MovieCard>
-          </Link>
-        ))}
+        {loading
+          ? popularMovie
+              .slice(0, 10)
+              .map((movie, index) => (
+                <MovieCardLoader movie={movie} key={index}></MovieCardLoader>
+              ))
+          : popularMovie.slice(0, 10).map((movie, index) => (
+              <Link key={movie?.id} href={`/details/${movie?.id}`}>
+                <MovieCard movie={movie} key={index}></MovieCard>
+              </Link>
+            ))}
       </div>
     </div>
   );

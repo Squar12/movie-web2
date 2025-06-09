@@ -50,7 +50,7 @@ export const MovieCarouselItem = ({ movie }) => {
       </div>
       {/* utas-----------> */}
       <div className="px-4 py-4 items-start  flex-col flex md:hidden">
-        <div className="flex">
+        <div className="flex justify-between items-center w-full h-[52px] md:invisible">
           <div className="w-full h-[52px] visible md:invisible">
             <p className="text-[14px] md:text-white">Now Playing:</p>
             <p className="text-[24px] font-bold md:text-white">Wicked</p>

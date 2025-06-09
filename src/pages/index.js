@@ -1,7 +1,7 @@
 import { MovieCarousel } from "@/Components/Carousel";
 import { Footer } from "@/Components/Footer";
 import { Header } from "@/Components/Header";
-import { HomeLoader } from "@/Components/HomeLoader";
+import { HomeLoader } from "@/Components/skeleton/HomeLoader";
 import { Popular } from "@/Components/Popular";
 import { TopRated } from "@/Components/TopRated";
 import { Upcoming } from "@/Components/Upcoming";

@@ -1,4 +1,4 @@
-import { Film, Moon, Search } from "lucide-react";
+import { Film, Search } from "lucide-react";
 import { GenresDropdown } from "./Genres";
 import Link from "next/link";
 import { DarkMode } from "./DarkMode";
@@ -17,19 +17,21 @@ export const Header = () => {
         <button className="w-[36px] h-[36px] border-gray-400 border-1 rounded-xl flex justify-center items-center md:hidden">
           <Search className="w-[12px] h-[12px]" />
         </button>
-        <div className="gap-4 sm:flex hidden">
-          <GenresDropdown />
-          <div className="flex items-center border rounded-sm">
-            <Search className="w-[16px] h-[16px] text-gray-500" />
-            {/* <input
-              className="w-[379px] h-[36px] pl-[10px]"
-              type="text"
-              placeholder="Search..."
-            /> */}
+      </div>
+      <div className="gap-4 mx-auto sm:flex hidden">
+        <GenresDropdown />
+        <div className="flex items-center gap-4">
+          <div className="border rounded-sm">
             <HeaderSearch />
           </div>
+          <Link href={`searchresult`}>
+            <div className="border rounded-sm h-[33px] w-[33px] flex justify-center items-center">
+              <Search className="w-[18px] h-[18px]" />
+            </div>
+          </Link>
         </div>
       </div>
+
       <div>
         <DarkMode />
       </div>

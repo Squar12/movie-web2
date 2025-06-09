@@ -2,7 +2,7 @@ import { ArrowRight, Link2 } from "lucide-react";
 import { MovieCard } from "./MovieCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { MovieCardLoader } from "./MovieCardLoader";
+import { MovieCardLoader } from "./skeleton/MovieCardLoader";
 
 export const Upcoming = () => {
   const [upComingMovie, setUpComingMovie] = useState([]);
@@ -51,7 +51,7 @@ export const Upcoming = () => {
                 <MovieCardLoader movie={movie} key={index}></MovieCardLoader>
               ))
           : upComingMovie.slice(0, 10).map((movie, index) => (
-              <Link key={movie?.id} href={`/details/${movie?.id}`}>
+              <Link key={upComingMovie?.id} href={`/details/${movie?.id}`}>
                 <MovieCard movie={movie} key={index}></MovieCard>
               </Link>
             ))}

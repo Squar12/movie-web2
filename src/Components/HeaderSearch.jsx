@@ -36,8 +36,15 @@ export const HeaderSearch = () => {
         value={searchValue}
         type="text"
         placeholder="Search..."
-        className={cn("pl-[38px]", "border-none", "shadow-none")}
+        className={cn(
+          "pl-[38px]",
+          "border-none",
+          "shadow-none",
+          "w-[270px]",
+          "h-[34px]"
+        )}
       />
+
       <SearchResult movies={movies} />
     </div>
   );

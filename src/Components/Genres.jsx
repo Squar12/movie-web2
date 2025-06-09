@@ -10,6 +10,7 @@ import {
 
 export const GenresDropdown = () => {
   const [genres, setGenres] = useState([]);
+  const [selectedGenreId, setSelectedGenreId] = useState(null);
 
   const getGenres = async () => {
     try {
@@ -38,7 +39,10 @@ export const GenresDropdown = () => {
       setGenres(data.genres);
     };
     fetchGenres();
-  }, []);
+  }, [selectedGenreId]);
+  const handleSelect = (genreId) => {
+    setSelectedGenreId(genreId);
+  };
 
   return (
     <DropdownMenu>
@@ -48,8 +52,20 @@ export const GenresDropdown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="grid grid-cols-4 gap-2">
         {genres.map((genre) => (
-          <Link href={`/search/s?genres=${genre.id}`} key={genre.id}>
-            <DropdownMenuItem>{genre.name}</DropdownMenuItem>
+          <Link
+            href={`/search/s?genres=${genre.id}`}
+            key={genre.id}
+            onClick={() => handleSelect(genre.id)}
+          >
+            <DropdownMenuItem
+              className={`cursor-pointer ${
+                selectedGenreId === genre.id
+                  ? "bg-blue-500 text-white"
+                  : "hover:bg-gray-200"
+              }`}
+            >
+              {genre.name}
+            </DropdownMenuItem>
           </Link>
         ))}
       </DropdownMenuContent>

@@ -53,7 +53,7 @@ export const GenresList = () => {
       <div className="max-w-[387px] flex flex-wrap gap-2 pt-[20px]">
         {genres.map((genre) => (
           <Button
-            className="rounded-xl text-black font-bold hover:bg-gray-400 text-[12px] transition-all"
+            className="rounded-xl font-bold hover:bg-gray-400 text-[12px] transition-all"
             key={genre.id}
             variant={
               genresQuery?.includes(`${genre.id}`) ? "default" : "secondary"

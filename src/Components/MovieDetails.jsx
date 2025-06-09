@@ -13,7 +13,7 @@ export const MovieDetails = ({ movie }) => {
     <div>
       <div className="md:hidden">
         <Header />
-        <div className="items-center flex justify-between px-5 pt-[32px] pb-[16px]">
+        <div className="items-center flex justify-between px-5 pt-[32px] pb-[16px] ">
           <div>
             <p className="text-[24px] font-bold">{movie?.title}</p>
             <p className="text-[14px]">{movie?.release_date}</p>
@@ -92,11 +92,12 @@ export const MovieDetails = ({ movie }) => {
       {/* utas---------------- */}
       <div className="hidden sm:block">
         <Header />
-        <div className="w-[1280px] flex  justify-between mx-auto pt-[32px] pb-[16px]">
+        <div className="w-[1280px] flex justify-between mx-auto pt-[32px] pb-[16px]">
           <div>
             <p className="text-[36px] font-bold">{movie?.title}</p>
             <p className="text-[18px]">{movie?.release_date}</p>
           </div>
+
           <div className="flex items-center gap-1">
             <Star className="text-yellow-300 fill-yellow-300 w-[28px] h-[28px] md:w-[16px]h-[16px]" />
             <div>
@@ -121,7 +122,7 @@ export const MovieDetails = ({ movie }) => {
           />
           <div className="relative">
             <img
-              className="w-[960px] h-[428px] "
+              className="w-[960px] h-[428px]"
               src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
               alt=""
             />
