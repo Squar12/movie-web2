@@ -1,5 +1,3 @@
-import { Key } from "lucide-react";
-
 export const Director = ({ directors }) => {
   return (
     <div>

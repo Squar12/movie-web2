@@ -10,7 +10,7 @@ export const MovieCarouselItem = ({ movie }) => {
   return (
     <div>
       <div
-        className="w-full relative h-[375px] md:h-[760px]"
+        className="w-full relative h-[375px] md:h-[760px] md:pl-[120px]"
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",

@@ -7,11 +7,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export const MovieCarousel = ({ nowPlayingMovie }) => {
   return (
     <div>
-      <Carousel className="w-screen ">
+      <Carousel
+        className="w-screen "
+        plugins={[
+          Autoplay({
+            delay: 4000,
+          }),
+        ]}
+      >
         <CarouselContent>
           {nowPlayingMovie.map((movie, index) => (
             <CarouselItem key={index}>

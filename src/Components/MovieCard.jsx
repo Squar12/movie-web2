@@ -5,7 +5,7 @@ export const MovieCard = ({ movie }) => {
     <div className="transform transition-transform duration-150 hover:scale-105">
       <img
         className="h-[234px] md:w-full md:h-[340px] rounded-t-sm object-cover"
-        src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.backdrop_path}`}
+        src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.poster_path}`}
         alt=""
       />
       <div className=" bg-gray-200 w-full h-[76px]  md:h-[115px] rounded-b-sm dark:bg-gray-800">

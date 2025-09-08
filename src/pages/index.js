@@ -4,8 +4,9 @@ import { Header } from "@/Components/Header";
 import { HomeLoader } from "@/Components/skeleton/HomeLoader";
 import { Popular } from "@/Components/Popular";
 import { TopRated } from "@/Components/TopRated";
-import { Upcoming } from "@/Components/Upcoming";
+
 import { useEffect, useState } from "react";
+import { Upcoming } from "@/Components/Upcoming";
 
 export default function Home() {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);

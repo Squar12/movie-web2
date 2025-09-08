@@ -44,7 +44,7 @@ export default function Page() {
           <div className="mb-4 text-[20px] font-bold">
             <p>{genreMovies.length} titles in “Animation”</p>
           </div>
-          <div className="grid grid-cols-4 gap-[48px]">
+          <div className="grid grid-cols-4 gap-[48px] w-[1280px]">
             {genreMovies.slice(0, 8).map((movie) => (
               <MovieCard key={movie?.id} movie={movie} />
             ))}
